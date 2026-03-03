@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="fwd_bilvaerksted.MainPage"
+             x:Name="mypage"
+             xmlns:behaviors="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             xmlns:vm="clr-namespace:fwd_bilvaerksted.ViewModels">
+    <VerticalStackLayout Padding="10"
+                         Spacing="10">
+        <Button Text="Tilføj basemodel + BaseModel id 0?"
+                Command="{Binding MyFunction1Command}"/>
+
+        <Button Text="BaseModel id 1?"
+                Command="{Binding MyFunction2Command}"/>
+
+        <Button Text="Slet base model id 0"
+                Command="{Binding MyFunction3Command}"/>
+
+        <Label x:Name="MitLabel"
+               Text="{Binding Text}"/>
+    </VerticalStackLayout>
+</ContentPage>
+
