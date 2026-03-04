@@ -8,8 +8,8 @@
              xmlns:vm="clr-namespace:fwd_bilvaerksted.ViewModels">
     <VerticalStackLayout Padding="10"
                          Spacing="10">
-        <Button Text="Tilføj basemodel + BaseModel id 0?"
-                Command="{Binding MyFunction1Command}"/>
+        <Button Text="Book ny opgave"
+                Command="{Binding BookNewOrderCommand}"/>
 
         <Button Text="BaseModel id 1?"
                 Command="{Binding MyFunction2Command}"/>

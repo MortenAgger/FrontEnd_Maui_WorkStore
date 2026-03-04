@@ -22,11 +22,12 @@ namespace fwd_bilvaerksted.ViewModels
         private string text = "Placeholder tekst"; // Nu skal den kaldes med "Text", grundet [ObservableProperty]
 
         [RelayCommand]
-        private async Task MyFunction1() // Kaldes i .xaml filen ved at skrive "MyFunction1Command"
+        private async Task BookNewOrder() // Kaldes i .xaml filen ved at skrive "BookNewOrderCommand"
         {
-            var newModel = new BaseModel
+            var newModel = new WorkOrder
             {
-                MyProp = "Jeg er tekst fra en BaseModel i databasen :D"
+                MyProp = "Hva så man"
+
             };
             await _database.AddModel(newModel);
 

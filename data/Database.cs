@@ -31,32 +31,33 @@ namespace fwd_bilvaerksted.Data
 
         private async Task Initialise()
         {
-            await _connection.CreateTableAsync<BaseModel>();
+            await _connection.CreateTableAsync<WorkOrder>();
         }
 
-        public async Task<List<BaseModel>> GetModels()
+        public async Task<List<WorkOrder>> GetModels()
         {
-            return await _connection.Table<BaseModel>().ToListAsync();
+            return await _connection.Table<WorkOrder>().ToListAsync();
         }
 
-        public async Task<BaseModel> GetModel(int id)
+        public async Task<WorkOrder> GetModel(int id)
         {
-            var query = _connection.Table<BaseModel>().Where(m => m.Id == id);
+            var query = _connection.Table<WorkOrder>().Where(m => m.Id == id);
+
 
             return await query.FirstOrDefaultAsync();
         }
 
-        public async Task<int> AddModel(BaseModel model)
+        public async Task<int> AddModel(WorkOrder model)
         {
             return await _connection.InsertAsync(model);
         }
 
-        public async Task<int> DeleteModel(BaseModel model)
+        public async Task<int> DeleteModel(WorkOrder model)
         {
             return await _connection.DeleteAsync(model);
         }
 
-        public async Task<int> UpdateModel(BaseModel model)
+        public async Task<int> UpdateModel(WorkOrder model)
         {
             return await _connection.UpdateAsync(model);
         }
