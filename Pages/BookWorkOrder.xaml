@@ -1,12 +1,29 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="fwd_bilvaerksted.WorkOrder"
-             Title="BookWorkOrder">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             x:Class="fwd_bilvaerksted.Pages.BookWorkOrder"
+             Title="Book ny opgave">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+            <Label Text="Book ny opgave" Style="{StaticResource SubHeadline}" />
+            <Label Text="Kundens navn" />
+            <Entry Text="{Binding Name}" Placeholder="Navn" />
+            <Label Text="Adresse" />
+            <Entry Text="{Binding Address}" Placeholder="Adresse" />
+            <Label Text="Bilmærke" />
+            <Entry Text="{Binding Brand}" Placeholder="Mærke" />
+            <Label Text="Model" />
+            <Entry Text="{Binding Model}" Placeholder="Model" />
+            <Label Text="Indregistreringsnummer" />
+            <Entry Text="{Binding RegNumber}" Placeholder="AB 12 345" />
+            <Label Text="Dato og tid for indlevering" />
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
+                <DatePicker Date="{Binding SelectedDate}" Grid.Column="0" />
+                <TimePicker Time="{Binding SelectedTime}" Grid.Column="1" />
+            </Grid>
+            <Label Text="Hvad skal laves" />
+            <Editor Text="{Binding JobDescription}" Placeholder="F.eks. service, olieskift..." HeightRequest="80" />
+            <Button Text="Gem opgave" Command="{Binding SaveOrderCommand}" />
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

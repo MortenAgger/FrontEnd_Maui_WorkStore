@@ -1,9 +1,9 @@
-﻿using fwd_bilvaerksted.Models;
+using fwd_bilvaerksted.Models;
 using SQLite;
 
 namespace fwd_bilvaerksted.Data
 {
-    internal class Database
+    public class Database
     {
         private readonly SQLiteAsyncConnection _connection;
 
@@ -32,6 +32,7 @@ namespace fwd_bilvaerksted.Data
         private async Task Initialise()
         {
             await _connection.CreateTableAsync<WorkOrder>();
+            await _connection.CreateTableAsync<Invoice>();
         }
 
         public async Task<List<WorkOrder>> GetModels()
@@ -60,6 +61,30 @@ namespace fwd_bilvaerksted.Data
         public async Task<int> UpdateModel(WorkOrder model)
         {
             return await _connection.UpdateAsync(model);
+        }
+
+        public async Task<List<WorkOrder>> GetWorkOrdersByDate(DateTime date)
+        {
+            var start = date.Date;
+            var end = start.AddDays(1);
+            return await _connection.Table<WorkOrder>()
+                .Where(w => w.TimeOfDelivery >= start && w.TimeOfDelivery < end)
+                .ToListAsync();
+        }
+
+        public async Task<List<Invoice>> GetInvoices()
+        {
+            return await _connection.Table<Invoice>().ToListAsync();
+        }
+
+        public async Task<Invoice?> GetInvoice(int id)
+        {
+            return await _connection.Table<Invoice>().Where(i => i.Id == id).FirstOrDefaultAsync();
+        }
+
+        public async Task<int> AddInvoice(Invoice invoice)
+        {
+            return await _connection.InsertAsync(invoice);
         }
     }
 }

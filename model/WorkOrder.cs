@@ -1,4 +1,4 @@
-﻿using SQLite;
+using SQLite;
 using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace fwd_bilvaerksted.Models
@@ -9,9 +9,6 @@ namespace fwd_bilvaerksted.Models
         [property: PrimaryKey]
         [property: AutoIncrement]
         private int id;
-
-        [ObservableProperty]
-        private string myProp;
 
         [ObservableProperty] private string name = "";
         [ObservableProperty] private string address = "";

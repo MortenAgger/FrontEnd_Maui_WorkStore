@@ -3,12 +3,12 @@
     x:Class="fwd_bilvaerksted.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:fwd_bilvaerksted"
-    Title="fwd_bilvaerksted">
+    xmlns:pages="clr-namespace:fwd_bilvaerksted.Pages"
+    Title="Bilværksted">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
-
+    <ShellContent Title="Hjem" ContentTemplate="{DataTemplate pages:MainPage}" Route="MainPage" />
+    <ShellContent Title="Book opgave" ContentTemplate="{DataTemplate pages:BookWorkOrder}" Route="BookWorkOrder" />
+    <ShellContent Title="Oversigt" ContentTemplate="{DataTemplate pages:OrderOverviewPage}" Route="OrderOverview" />
+    <ShellContent Title="Opret faktura" ContentTemplate="{DataTemplate pages:CreateInvoicePage}" Route="CreateInvoice" />
+    <ShellContent Title="Se fakturaer" ContentTemplate="{DataTemplate pages:ViewInvoicesPage}" Route="ViewInvoices" />
 </Shell>

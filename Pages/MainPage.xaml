@@ -1,24 +1,14 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             x:Class="fwd_bilvaerksted.MainPage"
-             x:Name="mypage"
-             xmlns:behaviors="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             x:Class="fwd_bilvaerksted.Pages.MainPage"
              xmlns:vm="clr-namespace:fwd_bilvaerksted.ViewModels">
-    <VerticalStackLayout Padding="10"
-                         Spacing="10">
-        <Button Text="Book ny opgave"
-                Command="{Binding BookNewOrderCommand}"/>
-
-        <Button Text="BaseModel id 1?"
-                Command="{Binding MyFunction2Command}"/>
-
-        <Button Text="Slet base model id 0"
-                Command="{Binding MyFunction3Command}"/>
-
-        <Label x:Name="MitLabel"
-               Text="{Binding Text}"/>
+    <VerticalStackLayout Padding="20" Spacing="16">
+        <Label Text="Bilværksted" Style="{StaticResource Headline}" />
+        <Label Text="Vælg en handling nedenfor:" Style="{StaticResource SubHeadline}" />
+        <Button Text="Book ny opgave" Command="{Binding BookNewOrderCommand}" />
+        <Button Text="Oversigt over opgaver for en dato" Command="{Binding GoToOrderOverviewCommand}" />
+        <Button Text="Opret faktura" Command="{Binding GoToCreateInvoiceCommand}" />
+        <Button Text="Se fakturaer" Command="{Binding GoToViewInvoicesCommand}" />
     </VerticalStackLayout>
 </ContentPage>
-

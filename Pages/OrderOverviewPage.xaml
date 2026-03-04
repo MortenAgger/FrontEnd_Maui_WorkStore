@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="fwd_bilvaerksted.Pages.OrderOverviewPage"
+             Title="Oversigt opgaver">
+    <VerticalStackLayout Padding="20" Spacing="12">
+        <Label Text="Oversigt over opgaver for valgt dato" Style="{StaticResource SubHeadline}" />
+        <Label Text="Vælg dato" />
+        <DatePicker Date="{Binding SelectedDate}" />
+        <Button Text="Vis opgaver" Command="{Binding LoadOrdersCommand}" />
+        <CollectionView x:Name="OrdersList" ItemsSource="{Binding Orders}" SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="12" Margin="0,4" BorderColor="{StaticResource Primary}">
+                        <VerticalStackLayout Spacing="4">
+                            <Label Text="{Binding Id, StringFormat='Ordrenr. {0}'}" FontAttributes="Bold" />
+                            <Label Text="{Binding Name}" />
+                            <Label Text="{Binding Brand}" />
+                            <Label Text="{Binding Model}" />
+                            <Label Text="{Binding TimeOfDelivery, StringFormat='{0:dd/MM/yyyy HH:mm}'}" />
+                            <Label Text="{Binding JobDescription}" />
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>

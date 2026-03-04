@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="fwd_bilvaerksted.Pages.ViewInvoicesPage"
+             Title="Se fakturaer">
+    <VerticalStackLayout Padding="20" Spacing="12">
+        <Label Text="Se fakturaer" Style="{StaticResource SubHeadline}" />
+        <SearchBar Text="{Binding SearchText}" Placeholder="Søg på ordrenr. eller mekaniker" />
+        <CollectionView ItemsSource="{Binding FilteredInvoices}" SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="12" Margin="0,4" BorderColor="{StaticResource Tertiary}">
+                        <VerticalStackLayout Spacing="4">
+                            <Label Text="{Binding Id, StringFormat='Faktura nr. {0}'}" FontAttributes="Bold" />
+                            <Label Text="{Binding WorkOrderId, StringFormat='Ordrenr. {0}'}" />
+                            <Label Text="{Binding MechanicName}" />
+                            <Label Text="{Binding MaterialsDescription}" />
+                            <Label Text="{Binding MaterialsPrice, StringFormat='Materialer: {0:N2} kr'}" />
+                            <Label Text="{Binding Hours, StringFormat='Timer: {0}'}" />
+                            <Label Text="{Binding HourlyRate, StringFormat='Timepris: {0:N2} kr'}" />
+                            <Label Text="{Binding Total, StringFormat='Total: {0:N2} kr'}" FontAttributes="Bold" />
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>

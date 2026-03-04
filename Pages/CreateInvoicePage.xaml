@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="fwd_bilvaerksted.Pages.CreateInvoicePage"
+             Title="Opret faktura">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+            <Label Text="Opret faktura" Style="{StaticResource SubHeadline}" />
+            <Label Text="Ordrenummer" />
+            <Entry Text="{Binding WorkOrderIdText}" Keyboard="Numeric" Placeholder="Fx 1" />
+            <Label Text="Mekanikerens navn" />
+            <Entry Text="{Binding MechanicName}" Placeholder="Navn" />
+            <Label Text="Materialer (beskrivelse)" />
+            <Editor Text="{Binding MaterialsDescription}" Placeholder="Beskrivelse" HeightRequest="60" />
+            <Label Text="Pris for materialer (kr)" />
+            <Entry Text="{Binding MaterialsPriceText}" Keyboard="Numeric" Placeholder="0" />
+            <Label Text="Antal timer" />
+            <Entry Text="{Binding HoursText}" Keyboard="Numeric" Placeholder="0" />
+            <Label Text="Timepris (kr)" />
+            <Entry Text="{Binding HourlyRateText}" Keyboard="Numeric" Placeholder="400" />
+            <Button Text="Gem faktura" Command="{Binding SaveInvoiceCommand}" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

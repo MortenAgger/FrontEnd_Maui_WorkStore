@@ -1,14 +1,13 @@
 ﻿using fwd_bilvaerksted.ViewModels;
 
-namespace fwd_bilvaerksted
+namespace fwd_bilvaerksted.Pages
 {
-	public partial class MainPage : ContentPage
-	{
-		public MainPage(MainViewModel vm)
-		{
-			InitializeComponent();
-			BindingContext = vm;
-		}
-	}
-
+    public partial class MainPage : ContentPage
+    {
+        public MainPage(MainViewModel vm)
+        {
+            InitializeComponent();
+            BindingContext = vm;
+        }
+    }
 }
